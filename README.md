@@ -7,4 +7,5 @@ I've tired of my default dotfiles, that do not work on every laptops. So, I deci
 # Content
 
 - Folder `scripts`
+        
     Folder with some temporary scripts
