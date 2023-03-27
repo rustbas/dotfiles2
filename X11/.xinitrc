@@ -16,6 +16,11 @@ setxkbmap -layout us,ru && setxkbmap -option 'grp:win_space_toggle'
 
 feh --bg-scale /home/rustam/new_dotfiles/images/wallpaper.jpg
 
+#   ╭─────────────╮
+#   │ SCREENSHOTS │
+#   ╰─────────────╯
+
+
 #   ╭────────────╮
 #   │ status bar │
 #   ╰────────────╯
