@@ -36,18 +36,63 @@ then
 fi
 }
 
+BAT_ICON () {
+status=$( cat /sys/class/power_supply/BAT0/status )
+cap="$( cat /sys/class/power_supply/BAT0/capacity )"
+
+if (( $cap <= 10 ))
+then
+    if [[ $status == "Charging" ]]
+    then
+        STATUS="󰢟"
+    elif [[ $status == "Discharging" ]]
+    then
+        STATUS="󰂎"
+    fi
+elif (( $cap > 10 && $cap <= 25 ))
+then
+    if [[ $status == "Charging" ]]
+    then
+        STATUS="󱊤"
+    elif [[ $status == "Discharging" ]]
+    then
+        STATUS="󱊡"
+    fi
+elif (( $cap > 25 && $cap <=85 ))
+then
+    if [[ $status == "Charging" ]]
+    then
+        STATUS="󱊥"
+    elif [[ $status == "Discharging" ]]
+    then
+        STATUS="󱊢"
+    fi
+elif (( $cap > 85 && $cap <=99 ))
+then
+    if [[ $status == "Charging" ]]
+    then
+        STATUS="󱊦"
+    elif [[ $status == "Discharging" ]]
+    then
+        STATUS="󱊣"
+    fi
+fi
+}
+
 while true
 do
+#STATUS="test"
+BAT_ICON
 
-BAT="$( cat $BAT_PATH ) %"
-BAT_STATUS
+# RAM=$( free -m | grep '^Mem' | awk '{print  "100*"$3"/"$2 } ' | bc)
 
-RAM=$( free -m | grep '^Mem' | awk '{print  "100*"$3"/"$2 } ' | bc)
+#SSID=$( nmcli dev wifi | grep -E "^[*]" | awk '{print $3}' )
+WIFI=$( nmcli dev wifi | grep -E "^[*]" | awk '{print $8}' )
 
 DATE=$( date +"%R %F" )
 
-xsetroot -name " RAM: ${RAM}% $SEP $STATUS $BAT $SEP $DATE"
-sleep 10
+xsetroot -name " : ${WIFI}% $SEP $STATUS $SEP $DATE"
+sleep 3
 done &
 
 # autoreload
