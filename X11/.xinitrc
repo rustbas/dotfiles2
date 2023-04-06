@@ -89,22 +89,22 @@ do
 #STATUS="test"
 BAT_ICON
 
-# RAM=$( free -m | grep '^Mem' | awk '{print  "100*"$3"/"$2 } ' | bc)
+RAM=$( free -m | grep '^Mem' | awk '{print  "100*"$3"/"$2 } ' | bc -l | cut -c 1-4)
+CPU=$( cat /proc/loadavg | awk 'BEGIN{FS=" "}; {print $1+$2+$3}' )
+DISK=$( df 2> /dev/null | grep '^/dev/sda3' | awk '{print 100*$3/$2}' | cut -c 1-5 )
 
 #SSID=$( nmcli dev wifi | grep -E "^[*]" | awk '{print $3}' )
 WIFI=$( nmcli dev wifi | grep -E "^[*]" | awk '{print $8}' )
 
 DATE=$( date +"%R %F" )
 
-xsetroot -name " : ${WIFI}% $SEP $STATUS $SEP $DATE"
+xsetroot -name " 󰋊: ${DISK}% $SEP : ${RAM}% $SEP 󰻠: ${CPU}% $SEP : ${WIFI}% $SEP $STATUS:${cap}% $SEP $DATE"
 sleep 3
 done &
 
-# autoreload
+# screen lock
 
-#while true
-#do
-#dwm
-#done
+xset dpms 180 &
+xss-lock -- slock &
 
 exec dwm
