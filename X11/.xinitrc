@@ -104,7 +104,7 @@ done &
 
 # screen lock
 
-xset dpms 180 &
-xss-lock -- slock &
+#xset dpms 180 &
+#xss-lock -- slock &
 
 exec dwm
