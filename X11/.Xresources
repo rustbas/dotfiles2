@@ -12,40 +12,47 @@ URxvt.perl-ext-common:  resize-font
 URxvt.keysym.C-Down:  resize-font:smaller
 URxvt.keysym.C-Up:    resize-font:bigger
 
-*.foreground: #C6C6C6
-*.background: #1C1C1C 
-*.cursorColor: #444444
+*.foreground:   #d8dee9
+*.background:   #1d1f21
+*.cursorColor:  #d8dee9
 
-! black 236 238
-*.color0: #303030
-*.color8: #444444
-! red 167
-*.color1: #d75f5f
-*.color9: #d75f5f
-! green 108
-*.color2: #87AF87
-*.color10: #87AF87
-! yellow 221
-*.color3: #ffd75f
-*.color11: #ffd75f
-! blue 110
-*.color4: #87afd7
-*.color12: #87afd7
-! magenta 146
-*.color5: #afafd7
-*.color13: #afafd7
-! cyan 75
-*.color6: #afd7ff
-*.color14: #afd7ff
-! white 239 15
-*.color7: #e4e4e4
-*.color15: #ffffff
+! black
+*.color0:       #2d2d2d
+*.color8:       #444444
+
+! red
+*.color1:       #ed0b0b
+*.color9:       #b55454
+
+! green
+*.color2:       #40a62f
+*.color10:      #78a670
+
+! yellow
+*.color3:       #f2e635
+*.color11:      #faf380
+
+! blue
+*.color4:       #327bd1
+*.color12:      #68a7d4
+
+! magenta
+*.color5:       #b30ad0
+*.color13:      #c583d0
+
+! cyan
+*.color6:       #32d0fc
+*.color14:      #8adaf1
+
+! white
+*.color7:       #555555
+*.color15:      #e0e3e7
 
 URxvt*utf8: 2
 URxvt*utf8Title: true
 URxvt*locale: 1
 !URxvt*font: xft:DejaVu Sans Mono:size=12:antialias=true:style=Book
-URxvt*font: xft:JetBrainsMono Nerd Font:size=12:antialias=true:style=Book
+URxvt*font: xft:JetBrainsMono Nerd Font:size=10:antialias=true:style=Book
 !URxvt*font: xft:Inconsolata Nerd Font Mono:style=Medium:size=10:pixelsize=16:antialias=true
 URxvt*borderLess: false
 URxvt*externalBorder: 0
@@ -74,7 +81,7 @@ URxvt*saveLines: 5000
 
 urxvt.termName: rxvt-256color
 urxvt.depth: 24
-!urxvt.transparent:true
+urxvt.transparent:true
 urxvt.shading: 10
 urxvt.inheritPixmap: true
 urxvt.fading: 10
